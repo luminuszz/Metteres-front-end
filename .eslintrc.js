@@ -26,9 +26,22 @@ module.exports = {
     'react',
     '@typescript-eslint',
     'jsx-a11y',
-    'import'
+    'import',
+    'eslint-plugin-import-helpers'
   ],
   rules: {
+    'import-helpers/order-imports': [
+      'warn',
+      {
+        newlinesBetween: 'always',
+        groups: [
+          'module',
+          '/^@shared/',
+          ['parent', 'sibling', 'index'],
+        ],
+        alphabetize: { order: 'asc', ignoreCase: true },
+      },
+    ],
     'react/jsx-filename-extension': [
       'error',
       {
@@ -37,6 +50,9 @@ module.exports = {
     ],
     'import/prefer-default-export': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-member-accessibility': 'off'
+    '@typescript-eslint/explicit-member-accessibility': 'off',
+    "import/extensions": 'off',
+    "import/no-unresolved": 'off'
+
   },
 };
